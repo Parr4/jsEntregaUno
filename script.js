@@ -18,11 +18,12 @@ class Producto {
 
 }
 
-// function actualizado (listado, objetos){
-//     for(const tomo of objetos){
-//         listado.push("\n" + tomo.id + ".- " + tomo.franquicia + " " + tomo.tomo + " (" +  tomo.stock + ") $" + tomo.precio)
-//     }
-// }
+function actualizar (listado, objetos){
+    listado.length = 0
+    for(const tomo of objetos){
+        listado.push("\n" + tomo.id + ".- " + tomo.franquicia + " " + tomo.tomo + " (" +  tomo.stock + ") $" + tomo.precio)
+    }
+}
 
 class Franquicia {
     constructor(id, nombre, editorial, precio) {
@@ -114,7 +115,7 @@ let precioTotal = 0;
 sistemaCompra: do {
     //  let = opcion = prompt("Ingrese el numero de la franquicia que desea comprar:\n1.-" + shmkPan + "\n2.-" + vdsgOp + "\n3.-" + tkrvIvr + "\n0.- Cancelar Compra \n\nEscribe CONFIRMAR para finalizar la compra ").toLowerCase();
 
-     let = opcion = prompt("Ingrese el numero de la franquicia que desea comprar:" + listaFranquicias.join(" ") +  "\n0.- Cancelar Compra \n\nEscribe CONFIRMAR para finalizar la compra".toLowerCase());
+     let = opcion = prompt("Ingrese el numero de la franquicia que desea comprar:" + listaFranquicias.join(" ") +  "\n0.- Cancelar Compra \n\nEscribe CONFIRMAR para finalizar la compra").toLowerCase();
 
     switch (opcion) {
         // seleccion shaman king
