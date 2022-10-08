@@ -12,8 +12,9 @@ class Producto {
         this.precio = precio
     }
 
-    restarStock() {
+    restarStock(listado, objetos) {
         this.stock = this.stock - 1;
+        actualizar(listado, objetos)
     }
 
 }
@@ -23,6 +24,10 @@ function actualizar (listado, objetos){
     for(const tomo of objetos){
         listado.push("\n" + tomo.id + ".- " + tomo.franquicia + " " + tomo.tomo + " (" +  tomo.stock + ") $" + tomo.precio)
     }
+}
+function productoAñadido(precioProducto){
+    precioTotal = precioTotal + precioProducto;
+    alert("Producto añadito al carrito con exito! \nEl valor de su carrito de compra es: $" + precioTotal + ".");
 }
 
 class Franquicia {
@@ -123,10 +128,11 @@ sistemaCompra: do {
             tomo = prompt("Ingrese el n° del tomo que desea agregar:\nTomo / Stock / Precio" + listaShmkPan.join(" "));
             switch (tomo) {
                 case "1": if (shmkPan1.stock > 0) {
-                    precioTotal = precioTotal + shmkPan1.precio;
-                    alert("Producto añadito al carrito con exito! \nEl valor de su carrito de compra es: $" + precioTotal + ".");
-                    shmkPan1.restarStock();
-                    actualizar(listaShmkPan, productoShmkPan)
+                    productoAñadido(shmkPan1.precio)
+                    // precioTotal = precioTotal + shmkPan1.precio;
+                    // alert("Producto añadito al carrito con exito! \nEl valor de su carrito de compra es: $" + precioTotal + ".");
+                    shmkPan1.restarStock(listaShmkPan, productoShmkPan);
+                    // actualizar(listaShmkPan, productoShmkPan)
 
                 }
                 else {
